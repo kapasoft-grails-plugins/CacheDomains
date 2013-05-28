@@ -1,0 +1,24 @@
+<plugin name='cache-domains' version='0.3-SNAPSHOT' grailsVersion='2.1 &gt; *'>
+  <author>Your name</author>
+  <title>Cache Domains Plugin</title>
+  <description>Brief summary/description of the plugin.
+</description>
+  <documentation>http://grails.org/plugin/cache-domains</documentation>
+  <type>CacheDomainsGrailsPlugin</type>
+  <resources>
+    <resource>app.minnehahalofts.app.NodeDriverProxyService</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies>
+    <runtime>
+      <dependency group='org.codehaus.groovy.modules.http-builder' name='http-builder' version='0.6' />
+    </runtime>
+  </dependencies>
+  <plugins />
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>

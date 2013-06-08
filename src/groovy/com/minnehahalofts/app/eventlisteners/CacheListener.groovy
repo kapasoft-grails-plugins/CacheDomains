@@ -31,16 +31,16 @@ class CacheListener extends AbstractPersistenceEventListener{
             case PostInsert:
                 println "POST INSERT ${event.entityObject}"
                 if(event.entityObject?.isCached){
-                    nodeDriverProxyService?.registerUpdate(event.entityObject.id, event.entityObject.version)
+                    nodeDriverProxyService?.registerUpdate(event.entityObject)
                 }
                 break
             case PreUpdate:
 //                println "PRE UPDATE ${event.entityObject}"
                 break;
             case PostUpdate:
-//                println "POST UPDATE ${event.entityObject}"
+                println "POST UPDATE ${event.entityObject}"
                 if(event.entityObject?.isCached){
-                    nodeDriverProxyService?.registerUpdate(event.entityObject.id, event.entityObject.version)
+                    nodeDriverProxyService?.registerUpdate(event.entityObject)
                 }
                 break;
             case PreDelete:

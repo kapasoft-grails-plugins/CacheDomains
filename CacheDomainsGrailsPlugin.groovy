@@ -1,11 +1,12 @@
 import org.codehaus.groovy.grails.commons.GrailsClassUtils as GCU
 import com.minnehahalofts.app.eventlisteners.CacheListener
 import com.minnehahalofts.app.NodeDriverProxyService
+import groovyx.net.http.HTTPBuilder
 
 class CacheDomainsGrailsPlugin {
     def groupId = 'minnehaha'
     // the plugin version
-    def version = "0.3-SNAPSHOT"
+    def version = "0.4-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.1 > *"
     // the other plugins this plugin depends on
@@ -48,7 +49,18 @@ Brief summary/description of the plugin.
     }
 
     def doWithSpring = {
+
+//        println()
+//        httpBuilder(HTTPBuilder){
+//            it.autowire = true
+//        }
         // TODO Implement runtime spring config (optional)
+//        nodeDriverProxyService(NodeDriverProxyService) {
+////            http = ref('httpBuilder')
+//        }
+        nodeDriverProxyService(NodeDriverProxyService) {
+            grailsApplication = ref('grailsApplication')
+        }
     }
 
     def doWithDynamicMethods = { ctx ->
@@ -59,7 +71,6 @@ Brief summary/description of the plugin.
         // TODO Implement post initialization spring config (optional)
         application.mainContext.eventTriggeringInterceptor.datastores.each { k, datastore ->
             def cacheListener = new CacheListener(datastore)
-            println('got in nodeDriSEr: ');
             if(!applicationContext){println('applicationContext is null')}
             if(!applicationContext.nodeDriverProxyService){println('nodeDriverProServe is null')}
             cacheListener.nodeDriverProxyService = applicationContext.nodeDriverProxyService

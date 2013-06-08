@@ -4,7 +4,7 @@
   <groupId>minnehaha</groupId>
   <artifactId>cache-domains</artifactId>
   <packaging>zip</packaging>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
   <name>Cache Domains Plugin</name>
   <description>Brief summary/description of the plugin.
 </description>
